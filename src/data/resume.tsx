@@ -210,6 +210,58 @@ export const DATA = {
       image: "/khelkud_full_page.png",
       video: "",
     },
+    {
+      title: "QuickBlog - AI Blogging Platform",
+      href: "https://quick-blog-vedant-patil.vercel.app/",
+      dates: "May 2026",
+      active: true,
+      description:
+        "Full-stack AI-powered blogging platform where users can generate blog posts using Google Gemini AI. Features include secure JWT authentication, rich text editing with Quill, and ImageKit integration.",
+      technologies: [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Tailwind CSS",
+        "Gemini AI",
+        "ImageKit",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://quick-blog-vedant-patil.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/quickblog-full.png",
+      video: "",
+    },
+    {
+      title: "GreenCart - Vegetable E-commerce",
+      href: "https://green-cart-client-ten.vercel.app",
+      dates: "May 2026",
+      active: true,
+      description:
+        "A modern MERN stack e-commerce platform for fresh vegetables. Includes Stripe payment gateway, Cloudinary image management, and a dedicated seller dashboard for inventory control.",
+      technologies: [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Tailwind CSS",
+        "Stripe",
+        "Cloudinary",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://green-cart-client-ten.vercel.app",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/greencart-full.png",
+      video: "",
+    },
   ],
   certifications: [
     {
