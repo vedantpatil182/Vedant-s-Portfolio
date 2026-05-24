@@ -262,6 +262,84 @@ export const DATA = {
       image: "/greencart-full.png",
       video: "",
     },
+    {
+      title: "AuraModels - Modeling Agency Website",
+      href: "https://aura-models1-8.vercel.app",
+      dates: "May 2026",
+      active: true,
+      description:
+        "A premium modeling agency and talent portfolio template featuring an elegant dark mode, fluid card hover animations with live-updating statistics, testimonials, and booking integration.",
+      technologies: [
+        "HTML5",
+        "CSS3",
+        "Bootstrap 5",
+        "jQuery",
+        "Owl Carousel",
+        "Wow.js",
+        "Responsive Design",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://aura-models1-8.vercel.app",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/auramodels-full.png",
+      video: "",
+    },
+    {
+      title: "KOPPEE - Coffee Shop Website",
+      href: "https://coffee-co-nine.vercel.app",
+      dates: "May 2026",
+      active: true,
+      description:
+        "A cozy, interactive coffee shop website equipped with an online table reservation scheduler, dynamic menu showcase, customer testimonial slider, and a rich, interactive steam-animated footer.",
+      technologies: [
+        "HTML5",
+        "CSS3",
+        "Bootstrap 4",
+        "jQuery",
+        "Tempusdominus",
+        "Owl Carousel",
+        "Interactive Footer",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://coffee-co-nine.vercel.app",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/koppee-full.png",
+      video: "",
+    },
+    {
+      title: "Archi - Architecture & Design Portfolio",
+      href: "https://architecture-design-portfolio.vercel.app",
+      dates: "May 2026",
+      active: true,
+      description:
+        "A minimalist, high-end architecture and interior design agency portfolio website. Features a custom navigation overlay, a fluid grid layout with category filtering via Isotope, and immersive parallax scrolling.",
+      technologies: [
+        "HTML5",
+        "CSS3",
+        "Bootstrap 5",
+        "jQuery",
+        "Slick Slider",
+        "Isotope (Masonry)",
+        "Jarallax (Parallax)",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://architecture-design-portfolio.vercel.app",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/archi-full.png",
+      video: "",
+    },
   ],
   certifications: [
     {
