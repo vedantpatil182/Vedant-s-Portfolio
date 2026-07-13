@@ -13,7 +13,7 @@ import StarBorder from "@/components/StarBorder";
 export default function Navbar() {
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-4 z-30">
-      <Dock className="z-50 pointer-events-auto relative h-14 p-2 w-fit mx-auto flex gap-2 border bg-card/90 backdrop-blur-3xl shadow-[0_0_10px_3px] shadow-primary/5">
+      <Dock className="z-50 pointer-events-auto relative h-14 p-2 w-fit mx-auto flex gap-2 border border-neutral-800 bg-black/90 backdrop-blur-3xl shadow-[0_0_10px_3px] shadow-primary/5">
         {DATA.navbar.map((item) => {
           const isExternal = item.href.startsWith("http");
           return (
@@ -25,7 +25,7 @@ export default function Navbar() {
                   rel={isExternal ? "noopener noreferrer" : undefined}
                 >
                   <StarBorder as="div" color="magenta" speed="3s" className="rounded-3xl">
-                    <DockIcon className="rounded-3xl cursor-pointer size-full bg-background p-0 text-muted-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl transition-colors">
+                    <DockIcon className="rounded-3xl cursor-pointer size-full bg-neutral-950 p-0 text-neutral-400 hover:text-white hover:bg-neutral-900 backdrop-blur-3xl transition-colors">
                       <item.icon className="size-full rounded-sm overflow-hidden object-contain" />
                     </DockIcon>
                   </StarBorder>
@@ -44,7 +44,7 @@ export default function Navbar() {
         })}
         <Separator
           orientation="vertical"
-          className="h-2/3 m-auto w-px bg-border"
+          className="h-2/3 m-auto w-px bg-neutral-800"
         />
         {Object.entries(DATA.contact.social)
           .filter(([_, social]) => social.navbar)
@@ -60,7 +60,7 @@ export default function Navbar() {
                     rel={isExternal ? "noopener noreferrer" : undefined}
                   >
                     <StarBorder as="div" color="magenta" speed="3.5s" className="rounded-3xl">
-                      <DockIcon className="rounded-3xl cursor-pointer size-full bg-background p-0 text-muted-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl transition-colors">
+                      <DockIcon className="rounded-3xl cursor-pointer size-full bg-neutral-950 p-0 text-neutral-400 hover:text-white hover:bg-neutral-900 backdrop-blur-3xl transition-colors">
                         <IconComponent className="size-full rounded-sm overflow-hidden object-contain" />
                       </DockIcon>
                     </StarBorder>
@@ -79,12 +79,12 @@ export default function Navbar() {
           })}
         <Separator
           orientation="vertical"
-          className="h-2/3 m-auto w-px bg-border"
+          className="h-2/3 m-auto w-px bg-neutral-800"
         />
         <Tooltip>
           <TooltipTrigger asChild>
             <StarBorder as="div" color="magenta" speed="4s" className="rounded-3xl">
-              <DockIcon className="rounded-3xl cursor-pointer size-full bg-background p-0 text-muted-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl transition-colors">
+              <DockIcon className="rounded-3xl cursor-pointer size-full bg-neutral-950 p-0 text-neutral-400 hover:text-white hover:bg-neutral-900 backdrop-blur-3xl transition-colors">
                 <ModeToggle className="size-full cursor-pointer" />
               </DockIcon>
             </StarBorder>

@@ -71,7 +71,7 @@ export default function RootLayout({
           geistMono.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <SplashCursor
             DENSITY_DISSIPATION={3.5}
             VELOCITY_DISSIPATION={2}
