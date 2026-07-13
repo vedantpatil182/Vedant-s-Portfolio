@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;500&family=Exo+2:wght@100;200;300&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -40,7 +44,24 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-display-lg: "Bebas Neue", sans-serif;
+  --font-body-md: "Barlow Condensed", sans-serif;
+  --font-label-caps: "Barlow Condensed", sans-serif;
+  --font-headline-md: "Bebas Neue", sans-serif;
+  --font-body-lg: "Barlow Condensed", sans-serif;
+  --animate-orbit: orbit calc(var(--duration)*1s) linear infinite;
 }
+
+@keyframes orbit {
+  0% {
+    transform: rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg));
+  }
+  100% {
+    transform: rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * 1px)) rotate(calc((var(--angle) * -1deg) - 360deg));
+  }
+}
+
 
 :root {
   --radius: 0.625rem;
@@ -112,12 +133,19 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   /* Shiki dual theme support */
@@ -233,23 +261,33 @@
 
 }
 
-@keyframes scrollY {
 
-  0%,
-  15% {
-    object-position: top;
-  }
 
-  85%,
-  100% {
-    object-position: bottom;
-  }
+.text-outline-stroke {
+    -webkit-text-stroke: 1px rgba(228, 226, 226, 0.4);
+    color: transparent;
 }
-
-.animate-scroll-y {
-  animation: scrollY 15s ease-in-out infinite alternate;
+.hero-gradient-mask {
+    mask-image: linear-gradient(to right, transparent, black 40%);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 40%);
 }
-
-.animate-scroll-y:hover {
-  animation-play-state: paused;
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+.full-bleed {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }

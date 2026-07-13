@@ -15,10 +15,10 @@ export const DATA = {
   location: "Jalgaon, Maharashtra, India",
   locationLink: "https://www.google.com/maps/place/jalgaon",
   description:
-    "Full Stack Web Developer with strong fundamentals in React.js, Next.js, JavaScript (ES6+), Tailwind CSS, HTML5, CSS3, React Native, Node.js, Express.js, MongoDB, PostgreSQL, Supabase, and REST APIs.",
+    "Full Stack Developer with strong fundamentals in React.js, Next.js, JavaScript (ES6+), Tailwind CSS, Node.js, Express.js, MongoDB, PostgreSQL, Supabase, and REST APIs.",
   summary:
-    "Motivated Full Stack Web Developer seeking an entry-level software development role where I can apply my skills in building scalable web applications, RESTful APIs, and database-driven solutions. Currently pursuing a [Bachelor of Computer Applications (BCA)](/#education) from KCES's Institute of Management & Research, Jalgaon. I have hands-on experience with modern web technologies and a passion for continuously learning and contributing to organizational growth.",
-  avatarUrl: "/avatar_new.jpg",
+    "Motivated Full Stack Web Developer seeking an entry-level software development role where I can apply my skills in building scalable web applications, RESTful APIs, and database-driven solutions. Completed a [Bachelor of Computer Applications (BCA)](/#education) from KCES's Institute of Management & Research, Jalgaon. I have hands-on experience with modern web technologies and a passion for continuously learning and contributing to organizational growth.",
+  avatarUrl: "/vedant_photo.jpg",
   skills: [
     { name: "HTML5", icon: ReactLight },
     { name: "CSS3", icon: ReactLight },

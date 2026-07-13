@@ -6,7 +6,8 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { FlickeringGrid } from "@/components/magicui/flickering-grid";
+import SplashCursor from "@/components/SplashCursor";
+import PixelBlast from "@/components/PixelBlast";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -71,22 +72,42 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
+          <SplashCursor
+            DENSITY_DISSIPATION={3.5}
+            VELOCITY_DISSIPATION={2}
+            PRESSURE={0.1}
+            CURL={3}
+            SPLAT_RADIUS={0.2}
+            SPLAT_FORCE={6000}
+            COLOR_UPDATE_SPEED={10}
+            SHADING
+            RAINBOW_MODE={false}
+            COLOR="#A855F7"
+          />
           <TooltipProvider delayDuration={0}>
-            <div className="absolute inset-0 top-0 left-0 right-0 h-[100px] overflow-hidden z-0">
-              <FlickeringGrid
-                className="h-full w-full"
-                squareSize={2}
-                gridGap={2}
-                style={{
-                  maskImage: "linear-gradient(to bottom, black, transparent)",
-                  WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
-                }}
-              />
-            </div>
-            <div className="relative z-10 max-w-2xl mx-auto py-12 pb-24 sm:py-24 px-6">
+
+            <div className="relative z-10 max-w-2xl mx-auto pb-24 px-6">
               {children}
             </div>
             <Navbar />
+            <div className="absolute inset-x-0 bottom-0 h-[150px] overflow-hidden z-0 pointer-events-none">
+              <PixelBlast
+                variant="square"
+                pixelSize={3}
+                color="#D8B4FE"
+                patternScale={2}
+                patternDensity={1}
+                liquid={false}
+                enableRipples={true}
+                edgeFade={0.5}
+                transparent={true}
+                className="w-full h-full"
+                style={{
+                  maskImage: "linear-gradient(to top, black, transparent)",
+                  WebkitMaskImage: "linear-gradient(to top, black, transparent)",
+                }}
+              />
+            </div>
           </TooltipProvider>
         </ThemeProvider>
       </body>

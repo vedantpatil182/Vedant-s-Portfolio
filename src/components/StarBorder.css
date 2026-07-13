@@ -1,0 +1,54 @@
+/* ── StarBorder: spinning conic-gradient border ──────────────────── */
+.star-border-outer {
+  position: relative;
+  display: inline-flex;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 2.5px;            /* border thickness */
+  box-sizing: border-box;
+}
+
+/* The spinning gradient that creates the border */
+.star-border-spin {
+  position: absolute;
+  inset: -200%;             /* extend so it fills container during rotation */
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    transparent 75%,
+    var(--star-color, magenta) 85%,
+    transparent 100%
+  );
+  animation: star-spin var(--star-speed, 3s) linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Inner content — must be opaque to mask the gradient beneath */
+.star-border-inner {
+  position: relative;
+  z-index: 1;
+  border-radius: 10px;      /* 2px less than outer for clean gap */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: hsl(var(--primary));  /* default: for badges */
+}
+
+/* For navbar context, override inner background via parent utility class */
+.star-border-outer.nav-icon .star-border-inner {
+  background: hsl(var(--background));
+}
+
+/* Maintain original 1.5px border thickness in navbar context */
+.pointer-events-none.fixed .star-border-outer {
+  padding: 1.5px;
+}
+
+@keyframes star-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

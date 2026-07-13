@@ -1,25 +1,52 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { ProjectCard } from "@/components/project-card";
 import { DATA } from "@/data/resume";
+import { InteractiveRobotSpline } from "@/components/ui/interactive-3d-robot";
+import StarBorder from "@/components/StarBorder";
+import Orb from "@/components/Orb";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function ProjectsSection() {
     return (
-        <section id="projects">
+        <div className="pt-16 sm:pt-20">
             <div className="flex min-h-0 flex-col gap-y-8">
                 <div className="flex flex-col gap-y-4 items-center justify-center">
+                    {/* Divider lines + robot header */}
                     <div className="flex items-center w-full">
                         <div
                             className="flex-1 h-px bg-linear-to-r from-transparent from-5% via-border via-95% to-transparent"
-
                         />
-                        <div className="border bg-primary z-10 rounded-xl px-4 py-1">
-                            <span className="text-background text-sm font-medium">My Projects</span>
+                        <div className="flex flex-col items-center">
+                            {/* Robot — tall enough to show full body */}
+                            <div
+                                className="relative -mt-16"
+                                style={{ width: '320px', height: '500px' }}
+                            >
+                                <div className="absolute inset-0 z-0 pointer-events-none scale-125 opacity-75">
+                                    <Orb
+                                        hue={280}
+                                        hoverIntensity={0.25}
+                                        rotateOnHover={true}
+                                        forceHoverState={true}
+                                    />
+                                </div>
+                                <InteractiveRobotSpline
+                                    scene="https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode"
+                                    className="w-full h-full relative z-10"
+                                    canvasWidth={560}
+                                    canvasHeight={760}
+                                />
+                            </div>
+                            {/* "My Projects" badge — sits below the robot, no overlap */}
+                            <StarBorder as="div" color="magenta" speed="2s">
+                                <div className="bg-primary rounded-xl px-4 py-1">
+                                    <span className="text-background text-sm font-medium">My Projects</span>
+                                </div>
+                            </StarBorder>
                         </div>
                         <div
                             className="flex-1 h-px bg-linear-to-l from-transparent from-5% via-border via-95% to-transparent"
-
                         />
                     </div>
                     <div className="flex flex-col gap-y-3 items-center justify-center">
@@ -53,7 +80,7 @@ export default function ProjectsSection() {
                     ))}
                 </div>
             </div>
-        </section>
+        </div>
     );
 }
 

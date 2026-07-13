@@ -1,0 +1,34 @@
+.falling-text-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  padding: 1rem 0;
+}
+
+.falling-text-target {
+  display: inline-block;
+  text-align: left;
+}
+
+.word {
+  display: inline-block;
+  margin: 0 4px;
+  user-select: none;
+  font-weight: 500;
+}
+
+.highlighted {
+  color: #a855f7;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(168,85,247,0.3);
+}
+
+.falling-text-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}

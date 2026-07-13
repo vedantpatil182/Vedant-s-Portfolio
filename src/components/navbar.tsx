@@ -8,6 +8,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
+import StarBorder from "@/components/StarBorder";
 
 export default function Navbar() {
   return (
@@ -23,9 +24,11 @@ export default function Navbar() {
                   target={isExternal ? "_blank" : undefined}
                   rel={isExternal ? "noopener noreferrer" : undefined}
                 >
-                  <DockIcon className="rounded-3xl cursor-pointer size-full bg-background p-0 text-muted-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl border border-border transition-colors">
-                    <item.icon className="size-full rounded-sm overflow-hidden object-contain" />
-                  </DockIcon>
+                  <StarBorder as="div" color="magenta" speed="3s" className="rounded-3xl">
+                    <DockIcon className="rounded-3xl cursor-pointer size-full bg-background p-0 text-muted-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl transition-colors">
+                      <item.icon className="size-full rounded-sm overflow-hidden object-contain" />
+                    </DockIcon>
+                  </StarBorder>
                 </a>
               </TooltipTrigger>
               <TooltipContent
@@ -56,9 +59,11 @@ export default function Navbar() {
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noopener noreferrer" : undefined}
                   >
-                    <DockIcon className="rounded-3xl cursor-pointer size-full bg-background p-0 text-muted-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl border border-border transition-colors">
-                      <IconComponent className="size-full rounded-sm overflow-hidden object-contain" />
-                    </DockIcon>
+                    <StarBorder as="div" color="magenta" speed="3.5s" className="rounded-3xl">
+                      <DockIcon className="rounded-3xl cursor-pointer size-full bg-background p-0 text-muted-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl transition-colors">
+                        <IconComponent className="size-full rounded-sm overflow-hidden object-contain" />
+                      </DockIcon>
+                    </StarBorder>
                   </a>
                 </TooltipTrigger>
                 <TooltipContent
@@ -78,9 +83,11 @@ export default function Navbar() {
         />
         <Tooltip>
           <TooltipTrigger asChild>
-            <DockIcon className="rounded-3xl cursor-pointer size-full bg-background p-0 text-muted-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl border border-border transition-colors">
-              <ModeToggle className="size-full cursor-pointer" />
-            </DockIcon>
+            <StarBorder as="div" color="magenta" speed="4s" className="rounded-3xl">
+              <DockIcon className="rounded-3xl cursor-pointer size-full bg-background p-0 text-muted-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl transition-colors">
+                <ModeToggle className="size-full cursor-pointer" />
+              </DockIcon>
+            </StarBorder>
           </TooltipTrigger>
           <TooltipContent
             side="top"

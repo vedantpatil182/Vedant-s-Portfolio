@@ -1,50 +1,52 @@
 /* eslint-disable @next/next/no-img-element */
 import BlurFade from "@/components/magicui/blur-fade";
-import BlurFadeText from "@/components/magicui/blur-fade-text";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
+import Image from "next/image";
 import Markdown from "react-markdown";
 import ContactSection from "@/components/section/contact-section";
 import ProjectsSection from "@/components/section/projects-section";
 import CertificationsSection from "@/components/section/certifications-section";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
+import ScrollFloat from "@/components/ScrollFloat";
+import NeuralBackground from "@/components/ui/flow-field-background";
+import SkillsOrbitSection from "@/components/section/skills-orbit-section";
+import LandHero from "@/components/LandHero";
 
 const BLUR_FADE_DELAY = 0.04;
 
+
 export default function Page() {
   return (
-    <main className="min-h-dvh flex flex-col gap-14 relative">
-      <section id="hero">
-        <div className="mx-auto w-full max-w-2xl space-y-8">
-          <div className="gap-2 gap-y-6 flex flex-col md:flex-row justify-between">
-            <div className="gap-2 flex flex-col order-2 md:order-1">
-              <BlurFadeText
-                delay={BLUR_FADE_DELAY}
-                className="text-3xl font-semibold tracking-tighter sm:text-4xl lg:text-5xl"
-                yOffset={8}
-                text={`Hi, I'm ${DATA.name.split(" ")[0]}`}
-              />
-              <BlurFadeText
-                className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
-                delay={BLUR_FADE_DELAY}
-                text={DATA.description}
-              />
-            </div>
-            <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2">
-              <Avatar className="size-24 md:size-32 border rounded-full shadow-lg ring-4 ring-muted">
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} className="object-cover scale-[1.4] translate-y-3" />
-                <AvatarFallback>{DATA.initials}</AvatarFallback>
-              </Avatar>
-            </BlurFade>
-          </div>
+    <main className="min-h-dvh flex flex-col relative">
+      <LandHero />
+      <div className="full-bleed relative py-14 bg-background">
+        {/* NeuralBackground flow field layer */}
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-90 dark:opacity-85 bg-black">
+          <NeuralBackground
+            color="#a855f7"
+            trailOpacity={0.08}
+            particleCount={300}
+            speed={0.6}
+          />
         </div>
-      </section>
-      <section id="about">
+
+        {/* Centered content layout */}
+        <div className="max-w-2xl mx-auto px-6 relative z-10 flex flex-col gap-14 w-full">
+          <section id="about">
         <div className="flex min-h-0 flex-col gap-y-4">
           <BlurFade delay={BLUR_FADE_DELAY * 3}>
-            <h2 className="text-xl font-bold">About</h2>
+            <ScrollFloat
+              animationDuration={0.8}
+              ease="back.out(1.5)"
+              scrollStart="top bottom+=85%"
+              scrollEnd="bottom top+=15%"
+              stagger={0.03}
+              textClassName="text-xl font-bold text-foreground"
+            >
+              About
+            </ScrollFloat>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
             <div className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
@@ -84,9 +86,11 @@ export default function Page() {
                 >
                   <div className="flex items-center gap-x-3 flex-1 min-w-0">
                     {education.logoUrl ? (
-                      <img
+                      <Image
                         src={education.logoUrl}
                         alt={education.school}
+                        width={40}
+                        height={40}
                         className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border overflow-hidden object-contain flex-none"
                       />
                     ) : (education as any).icon ? (
@@ -120,40 +124,16 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section id="skills">
-        <div className="flex min-h-0 flex-col gap-y-4">
-          <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <h2 className="text-xl font-bold">Skills</h2>
-          </BlurFade>
-          <div className="flex flex-wrap gap-2">
-            {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <div className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2">
-                  {skill.icon && <skill.icon className="size-4 rounded overflow-hidden object-contain" />}
-                  <span className="text-foreground text-sm font-medium">{skill.name}</span>
-                </div>
+          <section id="skills">
+            <div className="flex min-h-0 flex-col gap-y-4">
+              <BlurFade delay={BLUR_FADE_DELAY * 9}>
+                <h2 className="text-xl font-bold">Skills &amp; Tools</h2>
               </BlurFade>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section id="tools">
-        <div className="flex min-h-0 flex-col gap-y-4">
-          <BlurFade delay={BLUR_FADE_DELAY * 10}>
-            <h2 className="text-xl font-bold">Tools & AI</h2>
-          </BlurFade>
-          <div className="flex flex-wrap gap-2">
-            {DATA.tools.map((tool, id) => (
-              <BlurFade key={tool.name} delay={BLUR_FADE_DELAY * 11 + id * 0.05}>
-                <div className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2">
-                  {tool.icon && <tool.icon className="size-4 rounded overflow-hidden object-contain" />}
-                  <span className="text-foreground text-sm font-medium">{tool.name}</span>
-                </div>
+              <BlurFade delay={BLUR_FADE_DELAY * 10}>
+                <SkillsOrbitSection />
               </BlurFade>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
+          </section>
       <section id="projects">
         <BlurFade delay={BLUR_FADE_DELAY * 11}>
           <ProjectsSection />
@@ -169,6 +149,8 @@ export default function Page() {
           <ContactSection />
         </BlurFade>
       </section>
+        </div>
+      </div>
     </main>
   );
 }

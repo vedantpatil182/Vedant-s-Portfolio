@@ -1,27 +1,32 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
-
+ 
 import { Badge } from "@/components/ui/badge";
+import ElectricBorder from "@/components/ElectricBorder";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 import Markdown from "react-markdown";
-
+ 
 function ProjectImage({ src, alt }: { src: string; alt: string }) {
   const [imageError, setImageError] = useState(false);
-
+ 
   if (!src || imageError) {
     return <div className="w-full h-48 bg-muted" />;
   }
-
+ 
   return (
-    <img
-      src={src}
-      alt={alt}
-      className="w-full h-48 object-cover animate-scroll-y"
-      onError={() => setImageError(true)}
-    />
+    <div className="relative w-full h-48 overflow-hidden">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover object-top transition-all duration-[4s] ease-in-out group-hover:object-bottom"
+        onError={() => setImageError(true)}
+        sizes="(max-width: 768px) 100vw, 50vw"
+      />
+    </div>
   );
 }
 
@@ -55,12 +60,19 @@ export function ProjectCard({
   className,
 }: Props) {
   return (
-    <div
-      className={cn(
-        "group flex flex-col h-full border border-border rounded-xl overflow-hidden hover:ring-2 cursor-pointer hover:ring-muted transition-all duration-200",
-        className
-      )}
+    <ElectricBorder
+      color="#a855f7"
+      borderRadius={12}
+      speed={0.8}
+      chaos={0.08}
+      className="h-full"
     >
+      <div
+        className={cn(
+          "group flex flex-col h-full border border-border/40 bg-zinc-950/70 backdrop-blur-xs rounded-xl overflow-hidden hover:ring-2 cursor-pointer hover:ring-muted transition-all duration-200",
+          className
+        )}
+      >
       <div className="relative shrink-0">
         <Link
           href={href || "#"}
@@ -139,5 +151,6 @@ export function ProjectCard({
         )}
       </div>
     </div>
+    </ElectricBorder>
   );
 }

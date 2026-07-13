@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import Image from "next/image";
 import { DATA } from "@/data/resume";
 import { Timeline, TimelineItem, TimelineConnectItem } from "@/components/timeline";
+import StarBorder from "@/components/StarBorder";
 
 export default function CertificationsSection() {
     if (!DATA.certifications) return null;
@@ -13,9 +15,9 @@ export default function CertificationsSection() {
                 <div className="flex flex-col gap-y-4 items-center justify-center">
                     <div className="flex items-center w-full">
                         <div className="flex-1 h-px bg-linear-to-r from-transparent from-5% via-border via-95% to-transparent" />
-                        <div className="border bg-primary z-10 rounded-xl px-4 py-1">
-                            <span className="text-background text-sm font-medium">Certifications</span>
-                        </div>
+                        <StarBorder as="div" color="magenta" speed="2s">
+                            <span className="text-background text-sm font-medium px-4 py-1">Certifications</span>
+                        </StarBorder>
                         <div className="flex-1 h-px bg-linear-to-l from-transparent from-5% via-border via-95% to-transparent" />
                     </div>
                     <div className="flex flex-col gap-y-3 items-center justify-center">
@@ -30,9 +32,11 @@ export default function CertificationsSection() {
                         <TimelineItem key={certification.title + certification.dates} className="w-full flex items-start justify-between gap-10">
                             <TimelineConnectItem className="flex items-start justify-center">
                                 {certification.image ? (
-                                    <img
+                                    <Image
                                         src={certification.image}
                                         alt={certification.title}
+                                        width={48}
+                                        height={48}
                                         className="size-12 bg-card z-10 shrink-0 overflow-hidden p-2 border rounded-full shadow ring-2 ring-border object-contain flex-none"
                                     />
                                 ) : (
