@@ -8,6 +8,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SplashCursor from "@/components/SplashCursor";
 import PixelBlast from "@/components/PixelBlast";
+import AiAgentChat from "@/components/AiAgentChat";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -90,6 +91,7 @@ export default function RootLayout({
               {children}
             </div>
             <Navbar />
+            <AiAgentChat />
             <div className="absolute inset-x-0 bottom-0 h-[150px] overflow-hidden z-0 pointer-events-none">
               <PixelBlast
                 variant="square"
