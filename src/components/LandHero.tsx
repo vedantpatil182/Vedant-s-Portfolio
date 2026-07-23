@@ -124,8 +124,8 @@ export default function LandHero() {
         <NeuralBackground
           color="#a855f7"
           trailOpacity={0.08}
-          particleCount={250}
-          speed={0.6}
+          particleCount={90}
+          speed={0.5}
         />
       </div>
 

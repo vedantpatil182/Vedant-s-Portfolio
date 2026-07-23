@@ -131,16 +131,20 @@ export default function NeuralBackground({
 
     // --- INITIALIZATION ---
     const init = () => {
-      // Handle High-DPI screens (Retina)
-      const dpr = window.devicePixelRatio || 1;
+      // Handle High-DPI screens with a performance cap (max 1.25)
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.25);
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       ctx.scale(dpr, dpr);
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
 
+      // Reduce particle count on mobile for smooth FPS
+      const isMobile = window.innerWidth < 768;
+      const count = isMobile ? Math.floor(particleCount * 0.4) : particleCount;
+
       particles = [];
-      for (let i = 0; i < particleCount; i++) {
+      for (let i = 0; i < count; i++) {
         particles.push(new Particle());
       }
     };

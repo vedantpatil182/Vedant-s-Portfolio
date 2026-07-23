@@ -2,13 +2,13 @@
 import { useEffect, useRef } from 'react';
 
 function SplashCursor({
-  SIM_RESOLUTION = 128,
-  DYE_RESOLUTION = 1440,
+  SIM_RESOLUTION = 64,
+  DYE_RESOLUTION = 512,
   CAPTURE_RESOLUTION = 512,
   DENSITY_DISSIPATION = 3.5,
   VELOCITY_DISSIPATION = 2,
   PRESSURE = 0.1,
-  PRESSURE_ITERATIONS = 20,
+  PRESSURE_ITERATIONS = 8,
   CURL = 3,
   SPLAT_RADIUS = 0.2,
   SPLAT_FORCE = 6000,
@@ -23,6 +23,11 @@ function SplashCursor({
   const animationFrameId = useRef(null);
 
   useEffect(() => {
+    // Skip heavy WebGL fluid canvas on mobile & touch screens to prevent scroll lag
+    if (typeof window !== 'undefined' && (window.innerWidth < 768 || 'ontouchstart' in window)) {
+      return;
+    }
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -659,10 +664,28 @@ function SplashCursor({
     updateKeywords();
     initFramebuffers();
     let lastUpdateTime = Date.now();
+    let lastPointerMoveTime = Date.now();
+    let isLoopRunning = false;
     let colorUpdateTimer = 0.0;
 
+    function wakeUp() {
+      lastPointerMoveTime = Date.now();
+      if (!isLoopRunning && isActive) {
+        isLoopRunning = true;
+        updateFrame();
+      }
+    }
+
     function updateFrame() {
-      if (!isActive) return;
+      if (!isActive) {
+        isLoopRunning = false;
+        return;
+      }
+      if (Date.now() - lastPointerMoveTime > 2200) {
+        isLoopRunning = false;
+        return;
+      }
+      isLoopRunning = true;
       const dt = calcDeltaTime();
       if (resizeCanvas()) initFramebuffers();
       updateColors(dt);
@@ -935,6 +958,7 @@ function SplashCursor({
     }
 
     function handleMouseDown(e) {
+      wakeUp();
       let pointer = pointers[0];
       let posX = scaleByPixelRatio(e.clientX);
       let posY = scaleByPixelRatio(e.clientY);
@@ -944,6 +968,7 @@ function SplashCursor({
 
     let firstMouseMoveHandled = false;
     function handleMouseMove(e) {
+      wakeUp();
       let pointer = pointers[0];
       let posX = scaleByPixelRatio(e.clientX);
       let posY = scaleByPixelRatio(e.clientY);
