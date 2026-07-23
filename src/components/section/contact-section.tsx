@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { DATA } from "@/data/resume";
 import StarBorder from "@/components/StarBorder";
+import TextPressure from "@/components/TextPressure";
 
 export default function ContactSection() {
   return (
@@ -26,9 +27,20 @@ export default function ContactSection() {
         />
       </div>
       <div className="relative flex flex-col items-center gap-4 text-center">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-          Get in Touch
-        </h2>
+        <div className="relative w-full max-w-lg h-16 md:h-20 flex items-center justify-center my-2">
+          <TextPressure
+            text="Get in Touch"
+            flex={true}
+            alpha={false}
+            stroke={false}
+            width={true}
+            weight={true}
+            italic={true}
+            textColor="#d4c7e9"
+            strokeColor="#8875ef"
+            minFontSize={28}
+          />
+        </div>
         <p className="mx-auto max-w-lg text-muted-foreground text-balance">
           Want to chat? Just shoot me a dm{" "}
           <Link
