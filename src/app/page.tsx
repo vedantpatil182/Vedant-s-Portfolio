@@ -79,10 +79,10 @@ export default function Page() {
                 delay={BLUR_FADE_DELAY * 8 + index * 0.05}
               >
                 <Link
-                  href={education.href}
+                  href={education.href || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-x-3 justify-between group"
+                  className="flex items-center gap-x-3 justify-between group cursor-pointer"
                 >
                   <div className="flex items-center gap-x-3 flex-1 min-w-0">
                     {education.logoUrl ? (

@@ -119,7 +119,7 @@ export const DATA = {
   education: [
     {
       school: "KCES's Institute of Management & Research, Jalgaon",
-      href: "",
+      href: "https://imr.ac.in/",
       icon: GraduationCap,
       degree: "Bachelor of Computer Applications (BCA)",
       logoUrl: "",
