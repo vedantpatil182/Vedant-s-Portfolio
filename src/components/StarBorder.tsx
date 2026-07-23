@@ -15,8 +15,8 @@ interface StarBorderProps<T extends ElementType = 'div'> {
 function StarBorder<T extends ElementType = 'div'>({
   as,
   className = '',
-  color = 'magenta',
-  speed = '3s',
+  color = '#c084fc',
+  speed = '2.5s',
   children,
   style,
   ...rest

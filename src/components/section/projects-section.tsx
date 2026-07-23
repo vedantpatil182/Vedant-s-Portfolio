@@ -39,9 +39,10 @@ export default function ProjectsSection() {
                                 />
                             </div>
                             {/* "My Projects" badge — sits below the robot, no overlap */}
-                            <StarBorder as="div" color="magenta" speed="2s">
-                                <div className="bg-primary rounded-xl px-4 py-1">
-                                    <span className="text-background text-sm font-medium">My Projects</span>
+                            <StarBorder as="div" color="#c084fc" speed="2s" className="rounded-full shadow-lg shadow-purple-500/20">
+                                <div className="bg-neutral-900/90 border border-purple-500/30 text-purple-200 text-xs md:text-sm font-semibold px-4 py-1.5 rounded-full flex items-center gap-1.5">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
+                                    <span>My Projects</span>
                                 </div>
                             </StarBorder>
                         </div>

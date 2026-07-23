@@ -7,9 +7,10 @@ export default function ContactSection() {
   return (
     <div className="border rounded-xl p-10 relative">
       <div className="absolute -top-4 z-10 left-1/2 -translate-x-1/2">
-        <StarBorder as="div" color="magenta" speed="2s">
-          <div className="bg-primary rounded-xl px-4 py-1">
-            <span className="text-background text-sm font-medium">Contact</span>
+        <StarBorder as="div" color="#c084fc" speed="2s" className="rounded-full shadow-lg shadow-purple-500/20">
+          <div className="bg-neutral-900/90 border border-purple-500/30 text-purple-200 text-xs md:text-sm font-semibold px-4 py-1.5 rounded-full flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
+            <span>Contact</span>
           </div>
         </StarBorder>
       </div>
