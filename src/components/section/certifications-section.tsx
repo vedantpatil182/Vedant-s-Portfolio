@@ -15,7 +15,7 @@ export default function CertificationsSection() {
                 <div className="flex flex-col gap-y-4 items-center justify-center">
                     <div className="flex items-center w-full">
                         <div className="flex-1 h-px bg-linear-to-r from-transparent from-5% via-border via-95% to-transparent" />
-                        <StarBorder as="div" color="#c084fc" speed="2s" className="rounded-full shadow-lg shadow-purple-500/20">
+                        <StarBorder as="div" color="#c084fc" speed="5s" className="rounded-full shadow-lg shadow-purple-500/20">
                             <div className="bg-neutral-900/90 border border-purple-500/30 text-purple-200 text-xs md:text-sm font-semibold px-4 py-1.5 rounded-full flex items-center gap-1.5">
                                 <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
                                 <span>Certifications</span>

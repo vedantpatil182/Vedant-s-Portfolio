@@ -21,7 +21,7 @@
     #a855f7 90%,
     transparent 100%
   );
-  animation: star-spin var(--star-speed, 2.5s) linear infinite;
+  animation: star-spin var(--star-speed, 4s) linear infinite;
   pointer-events: none;
   z-index: 0;
 }

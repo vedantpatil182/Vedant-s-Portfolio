@@ -16,7 +16,7 @@ function StarBorder<T extends ElementType = 'div'>({
   as,
   className = '',
   color = '#c084fc',
-  speed = '2.5s',
+  speed = '4s',
   children,
   style,
   ...rest
